@@ -23,3 +23,7 @@ The current released version is in bold, and the current development version is 
 * Version 0.8 - Shows differences between files in commit history and since the last commit
 * Version 0.9 - Supports executing basic git commands through a command line-like interface.
 * Version 1.0 - Supports settings, setting global gitignore files, default gitignore/gitattribute files, etc
+* Version 1.1 - Supports "auto-sync" which will sync changes once an internet connection is detected (will pull changes in the background when the device is at home charging, will the latest changes already there when you go to work on it on the bus)
+
+
+
