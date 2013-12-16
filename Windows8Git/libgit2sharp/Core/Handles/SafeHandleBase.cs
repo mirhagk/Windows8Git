@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Globalization;
-using System.Runtime.ConstrainedExecution;
 using System.Runtime.InteropServices;
 using System.Threading;
 
@@ -35,11 +34,9 @@ namespace LibGit2Sharp.Core.Handles
         {
             if (!disposing && !IsInvalid)
             {
-                Trace.WriteLine(string.Format(CultureInfo.InvariantCulture, "A {0} handle wrapper has not been properly disposed.", GetType().Name));
 #if LEAKS
                 Trace.WriteLine(trace);
 #endif
-                Trace.WriteLine("");
             }
 
             base.Dispose(disposing);
@@ -65,13 +62,11 @@ namespace LibGit2Sharp.Core.Handles
             }
         }
 
-        [ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success)]
         protected virtual bool IsInvalidImpl()
         {
             return handle == IntPtr.Zero;
         }
 
-        [ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success)]
         protected abstract bool ReleaseHandleImpl();
 
         protected override sealed bool ReleaseHandle()

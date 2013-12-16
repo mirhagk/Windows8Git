@@ -2764,32 +2764,9 @@ namespace LibGit2Sharp.Core
 
         private static Func<IDisposable> ThreadAffinity = WithoutThreadAffinity;
 
-        internal static void EnableThreadAffinity()
-        {
-            ThreadAffinity = WithThreadAffinity;
-        }
-
         private static IDisposable WithoutThreadAffinity()
         {
             return null;
-        }
-
-        private static IDisposable WithThreadAffinity()
-        {
-            return new DisposableThreadAffinityWrapper();
-        }
-
-        private class DisposableThreadAffinityWrapper : IDisposable
-        {
-            public DisposableThreadAffinityWrapper()
-            {
-                Thread.BeginThreadAffinity();
-            }
-
-            public void Dispose()
-            {
-                Thread.EndThreadAffinity();
-            }
         }
 
         private static readonly IDictionary<Type, Func<string, object>> configurationParser = new Dictionary<Type, Func<string, object>>

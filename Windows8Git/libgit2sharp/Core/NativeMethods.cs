@@ -40,13 +40,11 @@ namespace LibGit2Sharp.Core
             }
         }
 
-        [ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success)]
         internal static void AddHandle()
         {
             Interlocked.Increment(ref handlesCount);
         }
 
-        [ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success)]
         internal static void RemoveHandle()
         {
             int count = Interlocked.Decrement(ref handlesCount);
