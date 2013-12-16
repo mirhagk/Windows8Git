@@ -13,7 +13,7 @@ namespace LibGit2Sharp
     {
         private readonly TarWriter writer;
 
-        public TarArchiver(FileStream output)
+        public TarArchiver(Stream output)
         {
             writer = new TarWriter(output);
         }

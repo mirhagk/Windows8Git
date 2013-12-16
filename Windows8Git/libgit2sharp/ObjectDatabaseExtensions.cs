@@ -15,11 +15,12 @@ namespace LibGit2Sharp
         /// <param name="archivePath">The archive path.</param>
         public static void Archive(this ObjectDatabase odb, Tree tree, string archivePath)
         {
-            using (var output = new FileStream(archivePath, FileMode.Create))
+            throw new System.NotImplementedException();
+            /*using (var output = new FileStream(archivePath, FileMode.Create))
             using (var archiver = new TarArchiver(output))
             {
                 odb.Archive(tree, archiver);
-            }
+            }*/
         }
 
         /// <summary>
@@ -30,11 +31,13 @@ namespace LibGit2Sharp
         /// <param name="archivePath">The archive path.</param>
         public static void Archive(this ObjectDatabase odb, Commit commit, string archivePath)
         {
+            throw new System.NotImplementedException();
+            /*
             using (var output = new FileStream(archivePath, FileMode.Create))
             using (var archiver = new TarArchiver(output))
             {
                 odb.Archive(commit, archiver);
-            }
+            }*/
         }
     }
 }
