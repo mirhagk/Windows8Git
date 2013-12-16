@@ -1,0 +1,15 @@
+﻿<Application
+    x:Class="Windows8Git.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Windows8Git"
+    xmlns:localData="using:Windows8Git.Data">
+
+    <Application.Resources>
+
+        <!-- Application-specific resources -->
+
+        <x:String x:Key="AppName">Windows8Git</x:String>
+
+    </Application.Resources>
+</Application>
