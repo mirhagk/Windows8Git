@@ -28,7 +28,7 @@ namespace LibGit2Sharp
             }
 
             // Store the sha in the pax_global_header
-            using (var stream = new MemoryStream(Encoding.ASCII.GetBytes(string.Format("52 comment={0}\n", oid.Sha))))
+            using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(string.Format("52 comment={0}\n", oid.Sha))))
             {
                 writer.Write("pax_global_header", stream, modificationTime, "666".OctalToInt32(), 
                     "0", "0", 'g', "root", "root", "0", "0", oid.Sha, false);

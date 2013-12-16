@@ -3,7 +3,6 @@ using System.Globalization;
 using System.IO;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using System.Runtime.ConstrainedExecution;
 using System.Runtime.InteropServices;
 using System.Threading;
 using LibGit2Sharp.Core.Handles;
@@ -23,7 +22,7 @@ namespace LibGit2Sharp.Core
         /// have run to completion ensuring that no dangling git-related finalizer runs after git_threads_shutdown.
         /// There should never be more than one instance of this object per AppDomain.
         /// </summary>
-        private sealed class LibraryLifetimeObject : CriticalFinalizerObject
+        private sealed class LibraryLifetimeObject
         {
             // Ensure mono can JIT the .cctor and adjust the PATH before trying to load the native library.
             // See https://github.com/libgit2/libgit2sharp/pull/190
@@ -65,8 +64,8 @@ namespace LibGit2Sharp.Core
                 string path = Path.Combine(Path.GetDirectoryName(originalAssemblypath), currentArchSubPath);
 
                 const string pathEnvVariable = "PATH";
-                Environment.SetEnvironmentVariable(pathEnvVariable,
-                                                   String.Format(CultureInfo.InvariantCulture, "{0}{1}{2}", path, Path.PathSeparator, Environment.GetEnvironmentVariable(pathEnvVariable)));
+                //Environment.SetEnvironmentVariable(pathEnvVariable,
+                                                   //String.Format(CultureInfo.InvariantCulture, "{0}{1}{2}", path, Path.PathSeparator, Environment.GetEnvironmentVariable(pathEnvVariable)));
             }
 
             // See LibraryLifetimeObject description.
@@ -90,8 +89,7 @@ namespace LibGit2Sharp.Core
         private static bool IsRunningOnLinux()
         {
             // see http://mono-project.com/FAQ%3a_Technical#Mono_Platforms
-            var p = (int)Environment.OSVersion.Platform;
-            return (p == 4) || (p == 6) || (p == 128);
+            return false;
         }
 
         [DllImport(libgit2)]
@@ -745,7 +743,7 @@ namespace LibGit2Sharp.Core
 
         [DllImport(libgit2)]
         internal static extern int git_reference_is_valid_name(
-            [MarshalAs(UnmanagedType.CustomMarshaler, MarshalCookie = UniqueId.UniqueIdentifier, MarshalTypeRef = typeof(StrictUtf8Marshaler))] string refname);
+            [MarshalAs(UnmanagedType.CustomMarhaler, MarshalCookie = UniqueId.UniqueIdentifier, MarshalTypeRef = typeof(StrictUtf8Marshaler))] string refname);
 
         [DllImport(libgit2)]
         internal static extern int git_reference_lookup(
