@@ -141,8 +141,6 @@
     <Compile Include="Core\ArrayMarshaler.cs" />
     <Compile Include="Core\Compat\EnumExtensions.cs" />
     <Compile Include="Core\Compat\Environment.cs" />
-    <Compile Include="Core\Compat\Lazy.cs" />
-    <Compile Include="Core\Compat\Tuple.cs" />
     <Compile Include="Core\EncodingMarshaler.cs" />
     <Compile Include="Core\Ensure.cs" />
     <Compile Include="Core\EnumExtensions.cs" />
@@ -226,7 +224,6 @@
     <Compile Include="Core\PathCase.cs" />
     <Compile Include="Core\Proxy.cs" />
     <Compile Include="Core\PushTransferProgressCallbacks.cs" />
-    <Compile Include="Core\RawContentStream.cs" />
     <Compile Include="Core\RepositoryOpenFlags.cs" />
     <Compile Include="Core\StringExtensions.cs" />
     <Compile Include="Core\SubmoduleLazyGroup.cs" />
@@ -274,8 +271,6 @@
     <Compile Include="ObjectDatabaseExtensions.cs" />
     <Compile Include="ObjectId.cs" />
     <Compile Include="ObjectType.cs" />
-    <Compile Include="OdbBackend.cs" />
-    <Compile Include="OdbBackendStream.cs" />
     <Compile Include="Patch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PushOptions.cs" />
